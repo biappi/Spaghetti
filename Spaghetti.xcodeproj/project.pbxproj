@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F231D05169B01910030A953 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F231D04169B01910030A953 /* Cocoa.framework */; };
 		3F231D0F169B01910030A953 /* Spaghetti.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F231D0E169B01910030A953 /* Spaghetti.m */; };
 		3F231D17169B01910030A953 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F231D16169B01910030A953 /* SenTestingKit.framework */; };
-		3F231D18169B01910030A953 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F231D04169B01910030A953 /* Cocoa.framework */; };
 		3F231D1B169B01910030A953 /* libSpaghetti.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F231D01169B01910030A953 /* libSpaghetti.a */; };
 		3F231D21169B01910030A953 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F231D1F169B01910030A953 /* InfoPlist.strings */; };
 		3F231D24169B01910030A953 /* SpaghettiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F231D23169B01910030A953 /* SpaghettiTests.m */; };
@@ -28,9 +26,6 @@
 
 /* Begin PBXFileReference section */
 		3F231D01169B01910030A953 /* libSpaghetti.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpaghetti.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F231D04169B01910030A953 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		3F231D07169B01910030A953 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		3F231D08169B01910030A953 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3F231D09169B01910030A953 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F231D0C169B01910030A953 /* Spaghetti-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spaghetti-Prefix.pch"; sourceTree = "<group>"; };
 		3F231D0D169B01910030A953 /* Spaghetti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spaghetti.h; sourceTree = "<group>"; };
@@ -48,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F231D05169B01910030A953 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +51,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F231D17169B01910030A953 /* SenTestingKit.framework in Frameworks */,
-				3F231D18169B01910030A953 /* Cocoa.framework in Frameworks */,
 				3F231D1B169B01910030A953 /* libSpaghetti.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,58 +80,47 @@
 		3F231D03169B01910030A953 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3F231D04169B01910030A953 /* Cocoa.framework */,
+				3F231D09169B01910030A953 /* Foundation.framework */,
 				3F231D16169B01910030A953 /* SenTestingKit.framework */,
-				3F231D06169B01910030A953 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3F231D06169B01910030A953 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3F231D07169B01910030A953 /* AppKit.framework */,
-				3F231D08169B01910030A953 /* CoreData.framework */,
-				3F231D09169B01910030A953 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		3F231D0A169B01910030A953 /* Spaghetti */ = {
 			isa = PBXGroup;
 			children = (
+				3F231D0B169B01910030A953 /* Boilerplate */,
 				3F231D0D169B01910030A953 /* Spaghetti.h */,
 				3F231D0E169B01910030A953 /* Spaghetti.m */,
-				3F231D0B169B01910030A953 /* Supporting Files */,
 			);
 			path = Spaghetti;
 			sourceTree = "<group>";
 		};
-		3F231D0B169B01910030A953 /* Supporting Files */ = {
+		3F231D0B169B01910030A953 /* Boilerplate */ = {
 			isa = PBXGroup;
 			children = (
 				3F231D0C169B01910030A953 /* Spaghetti-Prefix.pch */,
 			);
-			name = "Supporting Files";
+			name = Boilerplate;
 			sourceTree = "<group>";
 		};
 		3F231D1C169B01910030A953 /* SpaghettiTests */ = {
 			isa = PBXGroup;
 			children = (
+				3F231D1D169B01910030A953 /* Boilerplate */,
 				3F231D22169B01910030A953 /* SpaghettiTests.h */,
 				3F231D23169B01910030A953 /* SpaghettiTests.m */,
-				3F231D1D169B01910030A953 /* Supporting Files */,
 			);
 			path = SpaghettiTests;
 			sourceTree = "<group>";
 		};
-		3F231D1D169B01910030A953 /* Supporting Files */ = {
+		3F231D1D169B01910030A953 /* Boilerplate */ = {
 			isa = PBXGroup;
 			children = (
 				3F231D1E169B01910030A953 /* SpaghettiTests-Info.plist */,
 				3F231D1F169B01910030A953 /* InfoPlist.strings */,
 			);
-			name = "Supporting Files";
+			name = Boilerplate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
