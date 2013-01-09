@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F231D0F169B01910030A953 /* Spaghetti.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F231D0E169B01910030A953 /* Spaghetti.m */; };
 		3F231D17169B01910030A953 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F231D16169B01910030A953 /* SenTestingKit.framework */; };
 		3F231D1B169B01910030A953 /* libSpaghetti.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F231D01169B01910030A953 /* libSpaghetti.a */; };
 		3F231D21169B01910030A953 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F231D1F169B01910030A953 /* InfoPlist.strings */; };
 		3F231D24169B01910030A953 /* SpaghettiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F231D23169B01910030A953 /* SpaghettiTests.m */; };
+		3F231D30169B2AA30030A953 /* SGMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F231D2E169B2AA30030A953 /* SGMachine.h */; };
+		3F231D31169B2AA30030A953 /* SGMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F231D2F169B2AA30030A953 /* SGMachine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +29,14 @@
 		3F231D01169B01910030A953 /* libSpaghetti.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpaghetti.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F231D09169B01910030A953 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F231D0C169B01910030A953 /* Spaghetti-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spaghetti-Prefix.pch"; sourceTree = "<group>"; };
-		3F231D0D169B01910030A953 /* Spaghetti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spaghetti.h; sourceTree = "<group>"; };
-		3F231D0E169B01910030A953 /* Spaghetti.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spaghetti.m; sourceTree = "<group>"; };
 		3F231D15169B01910030A953 /* SpaghettiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaghettiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F231D16169B01910030A953 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		3F231D1E169B01910030A953 /* SpaghettiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaghettiTests-Info.plist"; sourceTree = "<group>"; };
 		3F231D20169B01910030A953 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F231D22169B01910030A953 /* SpaghettiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaghettiTests.h; sourceTree = "<group>"; };
 		3F231D23169B01910030A953 /* SpaghettiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaghettiTests.m; sourceTree = "<group>"; };
+		3F231D2E169B2AA30030A953 /* SGMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMachine.h; sourceTree = "<group>"; };
+		3F231D2F169B2AA30030A953 /* SGMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGMachine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				3F231D0B169B01910030A953 /* Boilerplate */,
-				3F231D0D169B01910030A953 /* Spaghetti.h */,
-				3F231D0E169B01910030A953 /* Spaghetti.m */,
+				3F231D2E169B2AA30030A953 /* SGMachine.h */,
+				3F231D2F169B2AA30030A953 /* SGMachine.m */,
 			);
 			path = Spaghetti;
 			sourceTree = "<group>";
@@ -130,6 +131,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F231D30169B2AA30030A953 /* SGMachine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F231D0F169B01910030A953 /* Spaghetti.m in Sources */,
+				3F231D31169B2AA30030A953 /* SGMachine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
