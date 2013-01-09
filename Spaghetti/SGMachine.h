@@ -17,4 +17,6 @@
 - (void)onEvent:(NSString *)event duringState:(NSString *)oldState transitionToState:(NSString *)newState;
 - (BOOL)sendEvent:(NSString *)event;
 
+- (NSString *)graphvizString;
+
 @end

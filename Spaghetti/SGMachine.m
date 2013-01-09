@@ -12,6 +12,7 @@ static NSString * StateEventKey(NSString * state, NSString * event);
 
 @implementation SGMachine
 {
+    NSMutableString     * adjacencyGraph;
     NSMutableDictionary * stateTransitions;
 }
 
@@ -24,8 +25,10 @@ static NSString * StateEventKey(NSString * state, NSString * event);
     if ((self = [super init]) == nil)
         return nil;
     
-    _state = state;
     stateTransitions = [NSMutableDictionary new];
+    adjacencyGraph   = [NSMutableString new];
+    
+    _state = state;
     
     return self;
 }
@@ -33,6 +36,7 @@ static NSString * StateEventKey(NSString * state, NSString * event);
 - (void)onEvent:(NSString *)event duringState:(NSString *)oldState transitionToState:(NSString *)newState {
     NSString * stateEventKey = StateEventKey(oldState, event);
     stateTransitions[stateEventKey] = newState;
+    [adjacencyGraph appendFormat:@"  \"%@\" -> \"%@\" [label=\"%@\"];\n", oldState, newState, event];
 }
 
 - (BOOL)sendEvent:(NSString *)event {
@@ -42,6 +46,10 @@ static NSString * StateEventKey(NSString * state, NSString * event);
         _state = newState;
     
     return (newState != nil);
+}
+
+- (NSString *)graphvizString {
+    return [NSString stringWithFormat:@"digraph {\n%@\n}\n", adjacencyGraph];
 }
 
 @end
