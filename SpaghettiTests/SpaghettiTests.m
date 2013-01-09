@@ -40,4 +40,28 @@
                          @"Graph serialization do not match");
 }
 
+- (void)testStateChanges {
+    SGMachine * fsm;
+    BOOL        res;
+    
+    fsm = [[SGMachine alloc] initWithInitialState:@"a"];
+    [fsm onEvent:@"goto_b" duringState:@"a" transitionToState:@"b"];
+    [fsm onEvent:@"goto_a" duringState:@"b" transitionToState:@"a"];
+
+    res = [fsm sendEvent:@"bla"];
+    STAssertFalse(res, @"Should not react to event'bla'");
+    
+    res = [fsm sendEvent:@"goto_b"];
+    STAssertTrue(res, @"Should switch to state for event 'goto_b'");
+    STAssertEqualObjects(@"b", fsm.state, @"State should now be b");
+    
+    res = [fsm sendEvent:@"goto_b"];
+    STAssertFalse(res, @"Should not react to event 'goto_b'");
+    STAssertEqualObjects(@"b", fsm.state, @"State should be stil b");
+
+    res = [fsm sendEvent:@"goto_a"];
+    STAssertTrue(res, @"Should switch to state for event 'goto_a'");
+    STAssertEqualObjects(@"a", fsm.state, @"State should now be a");
+}
+
 @end
