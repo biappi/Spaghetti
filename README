@@ -1,0 +1,7 @@
+Spaghetti
+---------
+
+A Finite State Machine implementation in Objective-C.
+
+To have a glimpse of its usage, take a look to the unit-tests.
+
