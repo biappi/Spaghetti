@@ -8,12 +8,26 @@
 
 #import "SGMachine.h"
 
-static NSString * StateEventKey(NSString * state, NSString * event);
+// Thanks SO! http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown
+
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+        do { \
+            _Pragma("clang diagnostic push") \
+            _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+            Stuff; \
+            _Pragma("clang diagnostic pop") \
+        } while (0)
+
+static NSString * StateEventKey                  (NSString * state, NSString * event);
+static SEL        DelegateDidChangeStateSelector (NSString * name,  NSString * state);
 
 @implementation SGMachine
 {
+    NSString            * name;
     NSMutableString     * adjacencyGraph;
     NSMutableDictionary * stateTransitions;
+    
+    __unsafe_unretained id delegate;
 }
 
 - (id)init {
@@ -21,10 +35,15 @@ static NSString * StateEventKey(NSString * state, NSString * event);
     return nil;
 }
 
-- (id)initWithInitialState:(NSString *)state {
+- (id)initWithName:(NSString *)theName
+      initialState:(NSString *)state
+          delegate:(id)theDelegate;
+{
     if ((self = [super init]) == nil)
         return nil;
     
+    name             = theName;
+    delegate         = theDelegate;
     stateTransitions = [NSMutableDictionary new];
     adjacencyGraph   = [NSMutableString new];
     
@@ -42,8 +61,13 @@ static NSString * StateEventKey(NSString * state, NSString * event);
 - (BOOL)sendEvent:(NSString *)event {
     NSString *newState = stateTransitions[StateEventKey(_state, event)];
     
-    if (newState)
+    if (newState) {
         _state = newState;
+        
+        SEL didChange = DelegateDidChangeStateSelector(name, newState);
+        if ([delegate respondsToSelector:didChange])
+            SuppressPerformSelectorLeakWarning([delegate performSelector:didChange withObject:event]);
+    }
     
     return (newState != nil);
 }
@@ -56,4 +80,8 @@ static NSString * StateEventKey(NSString * state, NSString * event);
 
 static NSString * StateEventKey(NSString * state, NSString * event) {
     return [NSString stringWithFormat:@"%@-%@", state, event];
+}
+
+static SEL DelegateDidChangeStateSelector(NSString * name,  NSString * state) {
+    return NSSelectorFromString([NSString stringWithFormat:@"stateMachine_%@_didChangeToState_%@:", name, state]);
 }

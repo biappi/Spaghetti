@@ -12,11 +12,9 @@
 
 @property (nonatomic, readonly) NSString * state;
 
-- (id)initWithInitialState:(NSString *)state;
-
+- (id)initWithName:(NSString *)name initialState:(NSString *)state delegate:(id)delegate;
 - (void)onEvent:(NSString *)event duringState:(NSString *)oldState transitionToState:(NSString *)newState;
 - (BOOL)sendEvent:(NSString *)event;
-
 - (NSString *)graphvizString;
 
 @end

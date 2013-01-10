@@ -22,7 +22,8 @@
 - (void)testCreation {
     SGMachine * fsm;
     
-    fsm = [[SGMachine alloc] initWithInitialState:@"a"];
+    fsm = [[SGMachine alloc] initWithName:@"test" initialState:@"a" delegate:nil];
+    
     STAssertEqualObjects(@"a", fsm.state, @"State is not the initial state");
     STAssertEqualObjects(@"digraph {\n\n}\n", [fsm graphvizString], @"Graph should be empty");
     
@@ -44,7 +45,8 @@
     SGMachine * fsm;
     BOOL        res;
     
-    fsm = [[SGMachine alloc] initWithInitialState:@"a"];
+    fsm = [[SGMachine alloc] initWithName:@"test" initialState:@"a" delegate:nil];
+    
     [fsm onEvent:@"goto_b" duringState:@"a" transitionToState:@"b"];
     [fsm onEvent:@"goto_a" duringState:@"b" transitionToState:@"a"];
 
